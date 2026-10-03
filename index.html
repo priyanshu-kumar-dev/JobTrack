@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>JobTrack - Job Application Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- Logo -->
+
+        <div
+            class="logo"
+            id="logoBtn"
+        >
+
+            <div class="logo-icon">
+                J
+            </div>
+
+            <div>
+
+                <h2>JobTrack</h2>
+
+                <p>
+                    Application Tracker
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="navigation">
+
+
+            <!-- Dashboard -->
+
+            <button
+                class="nav-item active"
+                id="dashboardBtn"
+                type="button"
+            >
+
+                <span>▣</span>
+
+                Dashboard
+
+            </button>
+
+
+            <!-- Applications -->
+
+            <button
+                class="nav-item"
+                id="applicationsBtn"
+                type="button"
+            >
+
+                <span>▤</span>
+
+                Applications
+
+            </button>
+
+
+            <!-- Add Application -->
+
+            <button
+                class="nav-item"
+                id="sidebarAddBtn"
+                type="button"
+            >
+
+                <span>＋</span>
+
+                Add Application
+
+            </button>
+
+        </nav>
+
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="nav-item"
+                id="settingsBtn"
+                type="button"
+            >
+
+                <span>⚙</span>
+
+                Settings
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- Top Header -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1 id="pageTitle">
+                    Dashboard
+                </h1>
+
+                <p id="pageSubtitle">
+                    Track and manage your job applications.
+                </p>
+
+            </div>
+
+
+            <button
+                class="add-btn"
+                id="addApplicationBtn"
+                type="button"
+            >
+
+                + Add Application
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- Total Applications -->
+
+            <div class="stat-card">
+
+                <div>
+
+                    <p>
+                        Total Applications
+                    </p>
+
+                    <h2 id="totalApplications">
+                        0
+                    </h2>
+
+                </div>
+
+                <div class="stat-icon">
+                    ▣
+                </div>
+
+            </div>
+
+
+            <!-- Applied -->
+
+            <div class="stat-card">
+
+                <div>
+
+                    <p>
+                        Applied
+                    </p>
+
+                    <h2 id="appliedApplications">
+                        0
+                    </h2>
+
+                </div>
+
+                <div class="stat-icon">
+                    ➤
+                </div>
+
+            </div>
+
+
+            <!-- Interviews -->
+
+            <div class="stat-card">
+
+                <div>
+
+                    <p>
+                        Interviews
+                    </p>
+
+                    <h2 id="interviewApplications">
+                        0
+                    </h2>
+
+                </div>
+
+                <div class="stat-icon">
+                    ◉
+                </div>
+
+            </div>
+
+
+            <!-- Selected -->
+
+            <div class="stat-card">
+
+                <div>
+
+                    <p>
+                        Selected
+                    </p>
+
+                    <h2 id="selectedApplications">
+                        0
+                    </h2>
+
+                </div>
+
+                <div class="stat-icon">
+                    ✓
+                </div>
+
+            </div>
+
+
+            <!-- Rejected -->
+
+            <div class="stat-card">
+
+                <div>
+
+                    <p>
+                        Rejected
+                    </p>
+
+                    <h2 id="rejectedApplications">
+                        0
+                    </h2>
+
+                </div>
+
+                <div class="stat-icon">
+                    ×
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             APPLICATIONS
+        ================================================== -->
+
+        <section
+            class="applications-section"
+            id="applicationsSection"
+        >
+
+
+            <!-- Section Header -->
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Recent Applications
+                    </h2>
+
+                    <p>
+                        Your latest job applications
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="view-all-btn"
+                    id="viewAllBtn"
+                    type="button"
+                >
+
+                    View All
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TOOLBAR
+            ================================================== -->
+
+            <div class="toolbar">
+
+
+                <!-- Search -->
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search company or job role..."
+                    >
+
+                </div>
+
+
+                <!-- Status Filter -->
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="Applied">
+                        Applied
+                    </option>
+
+                    <option value="Interview">
+                        Interview
+                    </option>
+
+                    <option value="Selected">
+                        Selected
+                    </option>
+
+                    <option value="Rejected">
+                        Rejected
+                    </option>
+
+                    <option value="Offer">
+                        Offer
+                    </option>
+
+                    <option value="Withdrawn">
+                        Withdrawn
+                    </option>
+
+                </select>
+
+
+                <!-- Sort -->
+
+                <select id="sortSelect">
+
+                    <option value="newest">
+                        Newest First
+                    </option>
+
+                    <option value="oldest">
+                        Oldest First
+                    </option>
+
+                    <option value="companyAZ">
+                        Company A-Z
+                    </option>
+
+                    <option value="companyZA">
+                        Company Z-A
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Company
+                            </th>
+
+                            <th>
+                                Job Role
+                            </th>
+
+                            <th>
+                                Location
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="applicationsTableBody">
+
+                        <!-- JavaScript will add applications -->
+
+                    </tbody>
+
+                </table>
+
+
+
+                <!-- Empty State -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                >
+
+                    <div class="empty-icon">
+                        ▤
+                    </div>
+
+
+                    <h3>
+                        No applications yet
+                    </h3>
+
+
+                    <p>
+                        Start tracking your job applications
+                        by adding your first application.
+                    </p>
+
+
+                    <button
+                        class="add-btn"
+                        id="emptyAddBtn"
+                        type="button"
+                    >
+
+                        + Add Application
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         ADD / EDIT APPLICATION MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="applicationModal"
+    >
+
+        <div class="modal">
+
+
+            <!-- Modal Header -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>
+                        Add Application
+                    </h2>
+
+                    <p>
+                        Enter your job application details.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="close-btn"
+                    id="closeModal"
+                    type="button"
+                >
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Form -->
+
+            <form id="applicationForm">
+
+                <div class="form-grid">
+
+
+                    <!-- Company -->
+
+                    <div class="form-group">
+
+                        <label for="company">
+                            Company Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company"
+                            placeholder="e.g. TCS"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Job Role -->
+
+                    <div class="form-group">
+
+                        <label for="role">
+                            Job Role
+                        </label>
+
+                        <input
+                            type="text"
+                            id="role"
+                            placeholder="e.g. MERN Stack Intern"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Location -->
+
+                    <div class="form-group">
+
+                        <label for="location">
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            placeholder="e.g. Jaipur"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Job Type -->
+
+                    <div class="form-group">
+
+                        <label for="jobType">
+                            Job Type
+                        </label>
+
+                        <select
+                            id="jobType"
+                            required
+                        >
+
+                            <option value="">
+                                Select Type
+                            </option>
+
+                            <option value="Internship">
+                                Internship
+                            </option>
+
+                            <option value="Full Time">
+                                Full Time
+                            </option>
+
+                            <option value="Part Time">
+                                Part Time
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Application Date -->
+
+                    <div class="form-group">
+
+                        <label for="applicationDate">
+                            Application Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="applicationDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Status -->
+
+                    <div class="form-group">
+
+                        <label for="status">
+                            Status
+                        </label>
+
+                        <select
+                            id="status"
+                            required
+                        >
+
+                            <option value="Applied">
+                                Applied
+                            </option>
+
+                            <option value="Interview">
+                                Interview
+                            </option>
+
+                            <option value="Selected">
+                                Selected
+                            </option>
+
+                            <option value="Rejected">
+                                Rejected
+                            </option>
+
+                            <option value="Offer">
+                                Offer
+                            </option>
+
+                            <option value="Withdrawn">
+                                Withdrawn
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Job URL -->
+
+                    <div class="form-group full-width">
+
+                        <label for="jobUrl">
+                            Job URL
+                        </label>
+
+                        <input
+                            type="url"
+                            id="jobUrl"
+                            placeholder="https://example.com/job"
+                        >
+
+                    </div>
+
+
+                    <!-- Notes -->
+
+                    <div class="form-group full-width">
+
+                        <label for="notes">
+                            Notes
+                        </label>
+
+                        <textarea
+                            id="notes"
+                            rows="4"
+                            placeholder="Add notes about this application..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Form Actions -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelModal"
+                    >
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+
+                        Save Application
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SETTINGS MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="settingsModal"
+    >
+
+        <div class="modal settings-modal">
+
+
+            <!-- Settings Header -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>
+                        Settings
+                    </h2>
+
+                    <p>
+                        Manage your JobTrack preferences.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="close-btn"
+                    id="closeSettings"
+                    type="button"
+                >
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Settings Content -->
+
+            <div class="settings-content">
+
+
+                <!-- Dark Mode -->
+
+                <div class="setting-item">
+
+                    <div>
+
+                        <h3>
+                            Dark Mode
+                        </h3>
+
+                        <p>
+                            Switch between light and dark theme.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="themeToggle"
+                        class="settings-action"
+                        type="button"
+                    >
+
+                        Dark Mode
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- Clear Applications -->
+
+                <div class="setting-item">
+
+                    <div>
+
+                        <h3>
+                            Clear Applications
+                        </h3>
+
+                        <p>
+                            Delete all saved job applications.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="clearApplications"
+                        class="settings-action danger"
+                        type="button"
+                    >
+
+                        Clear All
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/utils.js"></script>
+
+    <script src="js/ui.js"></script>
+
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>
